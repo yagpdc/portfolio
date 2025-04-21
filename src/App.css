@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: white;
+  background-image: radial-gradient(#00000022 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-attachment: fixed;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Classe para criar a borda personalizada */
+.custom-border {
+  clip-path: polygon(
+    50% 0%,
+    /* Metade direita do topo */ 100% 50%,
+    /* Metade topo da direita */ 50% 100%,
+    /* Metade baixa da esquerda */ 0% 50%
+      /* Metade esquerda da parte de baixo */
+  );
+  border-color: #f8f8f2; /* Cor da borda */
+}
