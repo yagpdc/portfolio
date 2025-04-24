@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function CursorFollower() {
   const [position, setPosition] = useState({ x: 0, y: 0 });

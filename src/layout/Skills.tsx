@@ -1,4 +1,3 @@
-import React from "react";
 import TitleSection from "../components/TitleSection";
 import SkillsGroup from "./SkillsGroup";
 

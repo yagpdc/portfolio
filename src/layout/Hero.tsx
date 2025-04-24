@@ -1,15 +1,11 @@
-import TextLarge from "../components/texts/TextLarge";
 import HeroNavigation from "../components/HeroNavigation";
 import HeroIntro from "../components/HeroIntro";
-import TextSmall from "../components/texts/TextSmall";
 import TextTitle from "../components/texts/TextTitle";
-import TextContainer from "./TextContainer";
 import { HeroProps } from "../types";
 import Line from "../components/shapes/Line";
 import TextMedium from "../components/texts/TextMedium";
 import CodeSnippet from "../components/CodeSnippet";
-import { EN_CODE, PT_CODE } from "../utils";
-import HyperLink from "../components/texts/HyperLink";
+import { PT_CODE } from "../utils";
 import curriculum from "../assets/curriculum-vitae.pdf";
 import React from "react";
 

@@ -1,4 +1,3 @@
-import TextMedium from "./texts/TextMedium";
 import Diagonal from "./shapes/Diagonal";
 import TextLarge from "./texts/TextLarge";
 

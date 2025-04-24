@@ -1,4 +1,3 @@
-import React from "react";
 import GroupItems from "./GroupItems";
 import NavItem from "../components/NavItem";
 import Logo from "../components/Logo";

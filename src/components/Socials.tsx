@@ -1,4 +1,3 @@
-import React from "react";
 import TextMedium from "./texts/TextMedium";
 
 function Socials() {

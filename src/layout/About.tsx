@@ -1,12 +1,7 @@
-import React from "react";
-import TextMedium from "../components/texts/TextMedium";
-import Diagonal from "../components/shapes/Diagonal";
-import TextContainer from "./TextContainer";
+
 import TextTitle from "../components/texts/TextTitle";
 import TextSmall from "../components/texts/TextSmall";
 import HyperLink from "../components/texts/HyperLink";
-import Line from "../components/shapes/Line";
-import TextLarge from "../components/texts/TextLarge";
 import TitleSection from "../components/TitleSection";
 
 function About() {

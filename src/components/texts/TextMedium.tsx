@@ -1,4 +1,3 @@
-import React from "react";
 
 function TextMedium({ content }: { content: string }) {
   return (

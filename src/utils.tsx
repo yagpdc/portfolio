@@ -74,7 +74,7 @@ export const PT_CODE = dedent(`
       console.log(\`Me ligue: \${this.phone}\`);
     }
   }
-  const me = new Developer();
+  const me = new Desenvolvedor();
  
   me.digaOla();
   me.informacoesDeContato();
