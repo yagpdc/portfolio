@@ -1,36 +1,62 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function Logo() {
-  const [hovered, setHovered] = useState(false);
   const [displayedText, setDisplayedText] = useState("</>");
+  const [step, setStep] = useState<"idle" | "typing" | "deleting">("idle");
+  const animationRunning = useRef(false);
+
+  const handleHover = () => {
+    if (!animationRunning.current) {
+      animationRunning.current = true;
+      setStep("typing");
+    }
+  };
 
   useEffect(() => {
-    if (hovered) {
-      const fullText = " Yago Santana ";
-      let currentIndex = 0;
-      let tempText = "<";
-      setDisplayedText(tempText);
-      const interval = setInterval(() => {
+    const fullText = " Yago Santana ";
+    let currentText = "<";
+    let currentIndex = 0;
+
+    if (step === "typing") {
+      setDisplayedText(currentText);
+      const typingInterval = setInterval(() => {
         if (currentIndex < fullText.length) {
-          tempText += fullText[currentIndex];
-          setDisplayedText(tempText);
+          currentText += fullText[currentIndex];
+          setDisplayedText(currentText);
           currentIndex++;
         } else {
-          clearInterval(interval);
-          setDisplayedText(tempText + "/>");
+          clearInterval(typingInterval);
+          setDisplayedText(currentText + "/>");
+          setTimeout(() => setStep("deleting"), 2000);
         }
       }, 100);
 
-      return () => clearInterval(interval);
-    } else {
-      setDisplayedText("</>");
+      return () => clearInterval(typingInterval);
     }
-  }, [hovered]);
+
+    if (step === "deleting") {
+      let tempText = `<${fullText}/>`;
+
+      const deletingInterval = setInterval(() => {
+        if (tempText.length > 0) {
+          tempText = tempText.slice(0, -1);
+          setDisplayedText(tempText);
+        } else {
+          clearInterval(deletingInterval);
+          setDisplayedText("</>");
+          animationRunning.current = false;
+          setStep("idle");
+        }
+      }, 50);
+
+      return () => clearInterval(deletingInterval);
+    }
+  }, [step]);
 
   return (
     <li
-      className="font-semibold list-none text-lg text-white transition-colors duration-300 ease-in-out rounded-md hover:text-[#f8f8f2]"
-      onMouseEnter={() => setHovered(true)}
+      onMouseEnter={handleHover}
+      className="font-semibold list-none text-lg text-white"
     >
       <a href="/" className="flex items-center gap-3">
         <span className="transition-all duration-500 ease-in-out">
